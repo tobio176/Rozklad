@@ -145,37 +145,18 @@
             text-decoration: underline;
         }
         
-        /* Стилі для відображення парних/непарних тижнів */
+        /* Логіка фільтрації тижнів */
         body:not(.is-odd-week) .schedule-item[data-week="odd"],
         body:not(.is-even-week) .schedule-item[data-week="even"] {
             display: none;
         }
 
-        /* Адаптивний дизайн для малих екранів */
         @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-
-            .day-navigation {
-                flex-direction: column;
-                padding: 5px;
-            }
-
-            .day-navigation button {
-                width: 100%;
-                margin: 5px 0;
-            }
-
-            .week-selector {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .week-selector button {
-                width: 100%;
-                margin: 5px 0;
-            }
+            .container { padding: 10px; }
+            .day-navigation { flex-direction: column; padding: 5px; }
+            .day-navigation button { width: 100%; margin: 5px 0; }
+            .week-selector { flex-direction: column; width: 100%; }
+            .week-selector button { width: 100%; margin: 5px 0; }
         }
     </style>
 </head>
@@ -186,8 +167,8 @@
             <div class="header-content">
                 <p id="week-status">Тиждень: </p>
                 <div class="week-selector">
-                    <button onclick="setWeekDisplay('odd')">Непарний</button>
-                    <button onclick="setWeekDisplay('even')">Парний</button>
+                    <button id="btn-odd" onclick="setWeekDisplay('odd')">Непарний</button>
+                    <button id="btn-even" onclick="setWeekDisplay('even')">Парний</button>
                 </div>
             </div>
         </header>
@@ -203,36 +184,18 @@
         <main>
             <section id="monday" class="schedule-day">
                 <h2>Понеділок</h2>
-                <div class="schedule-item" data-week="odd">
-                    <div class="time">8:00 – 9:35</div>
-                    <p class="subject">Менеджмент (Лекції)</p>
-                    <div class="details">
-                        <p>Викладач: Володимир Юрійович Філіппов</p>
-                        <p>Примітка: непарний тиждень</p>
-                        <a href="https://meet.google.com/jqi-ogzm-cjs?authuser=0&hs=179" target="_blank">Google Meet</a>
-                    </div>
-                </div>
-                <div class="schedule-item" data-week="even">
-                    <div class="time">8:00 – 9:35</div>
-                    <p class="subject">Менеджмент (Практичні заняття)</p>
-                    <div class="details">
-                        <p>Викладач: Янгулов Елвін Павлович</p>
-                        <p>Примітка: парний тиждень</p>
-                        <a href="https://meet.google.com/jqi-ogzm-cjs?authuser=0&hs=179" target="_blank">Google Meet</a>
-                    </div>
-                </div>
                 <div class="schedule-item">
                     <div class="time">9:50 – 11:25</div>
-                    <p class="subject">Технології створення ПП</p>
+                    <p class="subject">Математичні методи дослідження операцій (Лекція)</p>
                     <div class="details">
-                        <p>Викладач: д. Блажко О.А.</p>
-                        <p>ID: 876 4775 3497 | Пароль: 306089</p>
-                        <a href="https://us02web.zoom.us/j/87647753497?pwd=eTJzOGo5bGZnNC9NMGRBVFNKRVlQUT09" target="_blank">Zoom</a>
+                        <p>Викладач: д. Куваєва В.І.</p>
+                        <p>ID: 420 970 6766 | Код: 205010</p>
+                        <a href="https://us02web.zoom.us/j/4209706766?pwd=YVhZSHVYWGJOVkZLc2t0VFlkbDdxQT09&omn=85498519147" target="_blank">Zoom</a>
                     </div>
                 </div>
                 <div class="schedule-item">
                     <div class="time">11:40 – 13:15</div>
-                    <p class="subject">Комп’ютерні мережі</p>
+                    <p class="subject">Технології розподілених систем та паралельних обчислень (Лекція)</p>
                     <div class="details">
                         <p>Викладач: д. Вороненко М.О.</p>
                         <p>ID: 329 879 7262 | Код: 9uUveM</p>
@@ -245,18 +208,28 @@
                 <h2>Вівторок</h2>
                 <div class="schedule-item">
                     <div class="time">9:50 – 11:25</div>
-                    <p class="subject">Комп’ютерні мережі (лаб.)</p>
+                    <p class="subject">Програмування мобільних пристроїв на базі ОС Android (Лекція)</p>
                     <div class="details">
-                        <p>Викладачі: д. Вороненко М.О., ас. Засідько А.Я.</p>
-                        <a href="https://us04web.zoom.us/j/3298797262?pwd=eTQzYWtsRWRyNEtPS3BxUzhwTzcwdz09" target="_blank">Zoom</a>
+                        <p>Викладач: д. Годовиченко М.А.</p>
+                        <a href="https://bit.ly/hodovychenko_zoom" target="_blank">Zoom</a>
                     </div>
                 </div>
                 <div class="schedule-item">
                     <div class="time">11:40 – 13:15</div>
-                    <p class="subject">Інтелектуальний аналіз даних</p>
+                    <p class="subject">Математичні методи (Лаб.)</p>
                     <div class="details">
-                        <p>Викладач: пр. Антощук С.Г.</p>
-                        <a href="https://teams.microsoft.com/l/team/19%3A-GXIuYeXJbt1OXIKv60vV-O1DG1hADlPJoOx9JQKwT41%40thread.tacv2/conversations?groupId=c5b9beb3-3310-4092-a57d-ef7440d200a2&tenantId=bd2fa240-71fc-45bd-abce-f1bc80beeb0a" target="_blank">Teams</a>
+                        <p>Викладачі: ст.в. Гнатенко В.Ю., д. Куваєва В.І.</p>
+                        <p>ID: 420 970 6766 | Код: 205010</p>
+                        <a href="https://us02web.zoom.us/j/4209706766?pwd=YVhZSHVYWGJOVkZLc2t0VFlkbDdxQT09&omn=85498519147" target="_blank">Zoom</a>
+                    </div>
+                </div>
+                <div class="schedule-item" data-week="odd">
+                    <div class="time">13:30 – 15:05</div>
+                    <p class="subject">Програмування мобільних пристроїв (Лаб.)</p>
+                    <div class="details">
+                        <p>Викладачі: ас. Соловйова Д.В., ас. Засідько А.Я.</p>
+                        <p>Примітка: <span style="color: var(--accent-color);">Тільки непарний тиждень</span></p>
+                        <a href="https://us02web.zoom.us/j/3850184769?pwd=NUpkcWhqTlpwUlVYSkhGbXB4bWM1Zz09" target="_blank">Zoom</a>
                     </div>
                 </div>
             </section>
@@ -264,20 +237,30 @@
             <section id="wednesday" class="schedule-day">
                 <h2>Середа</h2>
                 <div class="schedule-item">
-                    <div class="time">8:00 – 9:35</div>
-                    <p class="subject">Інтелектуальний аналіз даних (лаб.)</p>
+                    <div class="time">9:50 – 11:25</div>
+                    <p class="subject">Моделювання систем (Лекція)</p>
                     <div class="details">
-                        <p>Викладачі: ас. Кошутіна Д.В., пр. Щербакова Г.Ю.</p>
-                        <a href="https://teams.microsoft.com/l/team/19%3A-GXIuYeXJbt1OXIKv60vV-O1DG1hADlPJoOx9JQKwT41%40thread.tacv2/conversations?groupId=c5b9beb3-3310-4092-a57d-ef7440d200a2&tenantId=bd2fa240-71fc-45bd-abce-f1bc80beeb0a" target="_blank">Teams</a>
+                        <p>Викладач: д. Ніколенко А.О.</p>
+                        <p>ID: 758 1538 7400 | Код: dvP2D1</p>
+                        <a href="https://us02web.zoom.us/j/75815387400?pwd=NmlqdGZmbW5yK1BuQmFiZXB1S2lKQT09" target="_blank">Zoom</a>
                     </div>
                 </div>
                 <div class="schedule-item">
-                    <div class="time">9:50 – 11:25</div>
-                    <p class="subject">Обчислювальні методи</p>
+                    <div class="time">11:40 – 13:15</div>
+                    <p class="subject">Технології розподілених систем (Лаб.)</p>
                     <div class="details">
-                        <p>Викладач: л. Шпиньковський О.А.</p>
-                        <!-- <a href="https://teams.microsoft.com/l/meetup-join/19%3ayp3vNP3BqAVPkuW2Y8YqKOKXF0QQlydP0_Y1XiVUDqY1%40thread.tacv2/1724955558997?context=%7b%22Tid%22%3a%22bd2fa240-71fc-45bd-abce-f1bc80beeb0a%22%2c%22Oid%22%3a%226e50c4db-d1c1-4aee-989d-96271729c62c%22%7d" target="_blank">Teams</a> -->
-                        <a href="https://us02web.zoom.us/j/83007614170?pwd=8IwLqPvjWzGIVhfgwtqkLPXrTSMqaU.1" target="_blank">Zoom</a>
+                        <p>Викладачі: д. Агаджанян А.Р., д. Вороненко М.О.</p>
+                        <p>ID: 329 879 7262 | Код: 9uUveM</p>
+                        <a href="https://us04web.zoom.us/j/3298797262?pwd=eTQzYWtsRWRyNEtPS3BxUzhwTzcwdz09" target="_blank">Zoom</a>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">13:30 – 15:05</div>
+                    <p class="subject">Моделювання систем (Лаб.)</p>
+                    <div class="details">
+                        <p>Викладачі: д. Ніколенко А.О., ст.в. Молчиніколова І.А.</p>
+                        <p>ID: 758 1538 7400 | Код: dvP2D1</p>
+                        <a href="https://us02web.zoom.us/j/75815387400?pwd=NmlqdGZmbW5yK1BuQmFiZXB1S2lKQT09" target="_blank">Zoom</a>
                     </div>
                 </div>
             </section>
@@ -286,33 +269,24 @@
                 <h2>Четвер</h2>
                 <div class="schedule-item">
                     <div class="time">9:50 – 11:25</div>
-                    <p class="subject">Забезпечення якості та тестування ПП</p>
+                    <p class="subject">Основи DevOps (Лекція)</p>
                     <div class="details">
-                        <p>Викладач: ст.в. Баськов І.В.</p>
-                        <a href="https://us04web.zoom.us/j/2872972964?pwd=NVBhNmVVN2lNQlpqWmxHNWhOeXBFUT09" target="_blank">Zoom</a>
+                        <p>Викладач: д. Шпиньковський О.А.</p>
+                        <a href="https://teams.microsoft.com/meet/36265742197216?p=BKJxOaK95rGnJDQGYZ" target="_blank">Teams</a>
                     </div>
                 </div>
                 <div class="schedule-item" data-week="odd">
                     <div class="time">11:40 – 13:15</div>
-                    <p class="subject">Забезпечення якості (лаб.)</p>
+                    <p class="subject">Основи DevOps (Лаб.)</p>
                     <div class="details">
-                        <p>Викладачі: д. Бабич М.І., ст.в. Баськов І.В.</p>
-                        <p>Примітка: непарний тиждень</p>
-                        <a href="https://us04web.zoom.us/j/2872972964?pwd=NVBhNmVVN2lNQlpqWmxHNWhOeXBFUT09" target="_blank">Zoom</a>
-                    </div>
-                </div>
-                <div class="schedule-item" data-week="odd">
-                    <div class="time">13:30 – 15:05</div>
-                    <p class="subject">Обчислювальні методи (лаб.)</p>
-                    <div class="details">
-                        <p>Викладачі: д. Шпиньковський О.А., д. Дрозд Ю.В.</p>
-                        <p>Примітка: непарний тиждень</p>
-                        <a href="https://us02web.zoom.us/j/83007614170?pwd=8IwLqPvjWzGIVhfgwtqkLPXrTSMqaU.1" target="_blank">Zoom</a>
+                        <p>Викладачі: д. Шпиньковський О.А., д. Кузнєцов М.О.</p>
+                        <p>Примітка: <span style="color: var(--accent-color);">Тільки непарний тиждень</span></p>
+                        <a href="https://el.op.edu.ua/mod/url/view.php?id=32224" target="_blank">Moodle</a>
                     </div>
                 </div>
             </section>
 
-            <section id="friday" class="schedule-day">
+            <!-- <section id="friday" class="schedule-day">
                 <h2>П’ятниця</h2>
                 <div class="schedule-item" data-week="even">
                     <div class="time">8:00 – 11:35</div>
@@ -340,79 +314,64 @@
                         <a href="https://us02web.zoom.us/j/87647753497?pwd=eTJzOGo5bGZnNC9NMGRBVFNKRVlQUT09" target="_blank">Zoom</a>
                     </div>
                 </div>
-            </section>
+            </section> -->
         </main>
     </div>
 
     <script>
         function showDay(dayId) {
-            document.querySelectorAll('.schedule-day').forEach(day => {
-                day.classList.remove('active');
-            });
-            document.querySelectorAll('.day-navigation button').forEach(button => {
-                button.classList.remove('active');
-            });
-
+            document.querySelectorAll('.schedule-day').forEach(day => day.classList.remove('active'));
+            document.querySelectorAll('.day-navigation button').forEach(button => button.classList.remove('active'));
             const selectedDay = document.getElementById(dayId);
-            if (selectedDay) {
-                selectedDay.classList.add('active');
-            }
-
+            if (selectedDay) selectedDay.classList.add('active');
             const activeButton = document.querySelector(`.day-navigation button[onclick="showDay('${dayId}')"]`);
-            if (activeButton) {
-                activeButton.classList.add('active');
-            }
+            if (activeButton) activeButton.classList.add('active');
         }
 
         function setWeekDisplay(type) {
             const body = document.body;
             const weekStatus = document.getElementById('week-status');
+            const btnOdd = document.getElementById('btn-odd');
+            const btnEven = document.getElementById('btn-even');
             
             body.classList.remove('is-odd-week', 'is-even-week');
+            btnOdd.classList.remove('active');
+            btnEven.classList.remove('active');
             
             if (type === 'odd') {
                 body.classList.add('is-odd-week');
                 weekStatus.textContent = 'Тиждень: непарний';
+                btnOdd.classList.add('active');
             } else if (type === 'even') {
                 body.classList.add('is-even-week');
                 weekStatus.textContent = 'Тиждень: парний';
+                btnEven.classList.add('active');
             }
         }
 
         const getWeekStatus = () => {
             const startDate = new Date('2025-09-01T00:00:00'); 
             const now = new Date();
-            
             const getMonday = (d) => {
                 d = new Date(d);
                 const day = d.getDay();
                 const diff = d.getDate() - day + (day === 0 ? -6 : 1);
                 return new Date(d.setDate(diff));
             };
-            
             const startMonday = getMonday(startDate);
             const nowMonday = getMonday(now);
-            const oneWeek = 1000 * 60 * 60 * 24 * 7;
-            const weekDiff = Math.floor((nowMonday - startMonday) / oneWeek);
-            
+            const weekDiff = Math.floor((nowMonday - startMonday) / (1000 * 60 * 60 * 24 * 7));
             const weekNumber = weekDiff + 1;
-            const isEven = weekNumber % 2 === 0;
-            
-            return { isEven, weekNumber };
+            return { isEven: weekNumber % 2 === 0 };
         };
 
         const { isEven } = getWeekStatus();
         setWeekDisplay(isEven ? 'even' : 'odd');
-        
+
         const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
         const todayIndex = new Date().getDay();
-        const todayId = days[todayIndex].toLowerCase();
-        
-        const initialDay = (todayIndex === 0 || todayIndex === 6) ? 'monday' : todayId;
+        const initialDay = (todayIndex === 0 || todayIndex === 6) ? 'monday' : days[todayIndex];
         showDay(initialDay);
     </script>
 </body>
 </html>
-
-
-
