@@ -145,7 +145,6 @@
             text-decoration: underline;
         }
         
-        /* Логіка фільтрації тижнів */
         body:not(.is-odd-week) .schedule-item[data-week="odd"],
         body:not(.is-even-week) .schedule-item[data-week="even"] {
             display: none;
@@ -184,12 +183,20 @@
         <main>
             <section id="monday" class="schedule-day">
                 <h2>Понеділок</h2>
+                <div class="schedule-item" data-week="odd">
+                    <div class="time">8:00 – 9:35</div>
+                    <p class="subject">Труд. та підприємн. право (Лекція)</p>
+                    <div class="details">
+                        <p>Викладач: Кривдіна І.Б., Кудлай І.Р.</p>
+                        <a href="https://meet.google.com/sdc-qjgy-xmf?authuser=0" target="_blank">Google Meet</a>
+                    </div>
+                </div>
                 <div class="schedule-item">
                     <div class="time">9:50 – 11:25</div>
                     <p class="subject">Математичні методи дослідження операцій (Лекція)</p>
                     <div class="details">
                         <p>Викладач: д. Куваєва В.І.</p>
-                        <p>ID: 420 970 6766 | Код: 205010</p>
+                        <p>ID: 420 970 6766 | Код: 875422</p>
                         <a href="https://us02web.zoom.us/j/4209706766?pwd=YVhZSHVYWGJOVkZLc2t0VFlkbDdxQT09&omn=85498519147" target="_blank">Zoom</a>
                     </div>
                 </div>
@@ -206,6 +213,14 @@
 
             <section id="tuesday" class="schedule-day">
                 <h2>Вівторок</h2>
+                <div class="schedule-item" data-week="even">
+                    <div class="time">8:00 – 9:35</div>
+                    <p class="subject">Труд. та підприємн. право (Практика)</p>
+                    <div class="details">
+                        <p>Викладач: Кривдіна І.Б., Кудлай І.Р.</p>
+                        <a href="https://meet.google.com/uwr-jrrv-jwy?authuser=0&hs=179" target="_blank">Google Meet</a>
+                    </div>
+                </div>
                 <div class="schedule-item">
                     <div class="time">9:50 – 11:25</div>
                     <p class="subject">Програмування мобільних пристроїв на базі ОС Android (Лекція)</p>
@@ -219,7 +234,7 @@
                     <p class="subject">Математичні методи (Лаб.)</p>
                     <div class="details">
                         <p>Викладачі: ст.в. Гнатенко В.Ю., д. Куваєва В.І.</p>
-                        <p>ID: 420 970 6766 | Код: 205010</p>
+                        <p>ID: 420 970 6766 | Код: 875422</p>
                         <a href="https://us02web.zoom.us/j/4209706766?pwd=YVhZSHVYWGJOVkZLc2t0VFlkbDdxQT09&omn=85498519147" target="_blank">Zoom</a>
                     </div>
                 </div>
@@ -228,7 +243,6 @@
                     <p class="subject">Програмування мобільних пристроїв (Лаб.)</p>
                     <div class="details">
                         <p>Викладачі: ас. Соловйова Д.В., ас. Засідько А.Я.</p>
-                        <p>Примітка: <span style="color: var(--accent-color);">Тільки непарний тиждень</span></p>
                         <a href="https://us02web.zoom.us/j/3850184769?pwd=NUpkcWhqTlpwUlVYSkhGbXB4bWM1Zz09" target="_blank">Zoom</a>
                     </div>
                 </div>
@@ -280,41 +294,17 @@
                     <p class="subject">Основи DevOps (Лаб.)</p>
                     <div class="details">
                         <p>Викладачі: д. Шпиньковський О.А., д. Кузнєцов М.О.</p>
-                        <p>Примітка: <span style="color: var(--accent-color);">Тільки непарний тиждень</span></p>
                         <a href="https://el.op.edu.ua/mod/url/view.php?id=32224" target="_blank">Moodle</a>
                     </div>
                 </div>
             </section>
 
-            <!-- <section id="friday" class="schedule-day">
+            <section id="friday" class="schedule-day">
                 <h2>П’ятниця</h2>
-                <div class="schedule-item" data-week="even">
-                    <div class="time">8:00 – 11:35</div>
-                    <p class="subject">ВЕБ-технології та ВЕБ-дизайн (лаб.)</p>
-                    <div class="details">
-                        <p>Викладачі: д. Червоненко П.П., ст.в. Бабійчук О.Б.</p>
-                        <p>Примітка: парний тиждень</p>
-                        <a href="https://meet.google.com/uuk-nnyh-jso" target="_blank">Google Meet</a>
-                    </div>
-                </div>
                 <div class="schedule-item">
-                    <div class="time">9:50 – 11:25</div>
-                    <p class="subject">ВЕБ-технології та ВЕБ-дизайн</p>
-                    <div class="details">
-                        <p>Викладач: д. Червоненко П.П.</p>
-                        <a href="https://meet.google.com/aep-vjuc-eot" target="_blank">Google Meet</a>
-                    </div>
+                    <p class="details">На сьогодні занять не заплановано.</p>
                 </div>
-                <div class="schedule-item" data-week="even">
-                    <div class="time">11:40 – 13:15</div>
-                    <p class="subject">Технології створення ПП (лаб.)</p>
-                    <div class="details">
-                        <p>Викладачі: д. Блажко О.А., д. Дрозд М.О.</p>
-                        <p>Примітка: парний тиждень</p>
-                        <a href="https://us02web.zoom.us/j/87647753497?pwd=eTJzOGo5bGZnNC9NMGRBVFNKRVlQUT09" target="_blank">Zoom</a>
-                    </div>
-                </div>
-            </section> -->
+            </section>
         </main>
     </div>
 
